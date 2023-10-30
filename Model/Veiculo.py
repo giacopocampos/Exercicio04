@@ -2,12 +2,12 @@ import abc
 
 class Veiculo(abc.ABC):
 
-    def __init__(self, placa=None, valor=None, cliente=None, alugado=False, historico=[]):
-        self.__placa = placa
-        self.__valor = valor
-        self.__alugado = alugado
-        self.__historico = historico
-        self.__cliente = cliente
+    def __init__(self):
+        self.__placa = None
+        self.__valor = None
+        self.__alugado = False
+        self.__historico = []
+        self.__cliente = None
     
     def setPlaca(self, placa):
         self.__placa = placa
@@ -51,7 +51,6 @@ class Veiculo(abc.ABC):
             print(f"\n**Veiculo de placa {placa} não está disponível para aluguel. O cliente {cliente} terá que aguardar a devolução.")
             return False
     
-
     def devolver(self, placa):
         if self.__alugado:
             self.__alugado = False

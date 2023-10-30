@@ -2,8 +2,8 @@ from Model.Veiculo import Veiculo
 
 
 class Moto(Veiculo):
-    def __init__(self, placa, valor):
-        super().__init__(placa, valor, alugado=False, historico=[], cliente=None)
+    def __init__(self):
+        super().__init__()
 
     def calcularAluguel(self, dias):
         valor_base = super().calcularAluguel(dias)
@@ -12,3 +12,6 @@ class Moto(Veiculo):
         else:
             return valor_base * 1.2
 
+    def listarMoto(self):
+        print(f'Moto - PLACA: {self.getPlaca()}/ VALOR: {self.getValor()}/\n')
+        

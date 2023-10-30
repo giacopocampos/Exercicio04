@@ -1,6 +1,6 @@
 class Cliente:
-    def __int__(self, nome=None):
-        self.__nome = nome
+    def __int__(self):
+        self.__nome = None
         self.__veiculos = []
     
     def setNome(self, nome):
