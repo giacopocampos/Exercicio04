@@ -2,74 +2,93 @@ from Model.Carro import Carro
 from Model.Moto import Moto
 from Model.Cliente import Cliente
 
+def principal():
+    #CLIENTES
+    print('\n*************************CLIENTES*************************\n')
+    cliente1 = Cliente()
+    cliente1.setNome('Marco\n')
+    cliente1.listarCliente()
 
-#CLIENTES
-cliente1 = Cliente()
-cliente1.setNome('Marco')
-cliente1.listarCliente()
-
-cliente2 = Cliente()
-cliente2.setNome('Antonio')
-cliente2.listarCliente()
-      
-#VEÍCULOS DA LOCAÇÃO
-carro1 = Carro('Celta', 'ABC123', 100)
-
-carro2 = Carro('Celta', 'XYZ123', 80)
-
-moto1 = Moto('MOT123', 40)
+    cliente2 = Cliente()
+    cliente2.setNome('Antonio')
+    cliente2.listarCliente()
     
-moto2 = Moto('MOT234', 50)
+    print('\n*************************VEÍCULOS*************************\n')
+    #VEÍCULOS DA LOCAÇÃO
+    carro1 = Carro()
+    carro1.setModelo('Celta')
+    carro1.setPlaca('ABC123')
+    carro1.setValor(100)
+    carro1.listarCarro()
 
-# LOCAÇÃO
-print('\n*************************INFORMAÇÕES LOCAÇÃO*************************\n')
-carro1.alugar(cliente1.getNome(), carro1.getPlaca(),  5)
+    carro2 = Carro()
+    carro2.setModelo('Gol')
+    carro2.setPlaca('XYZ123')
+    carro2.setValor(80)
+    carro2.listarCarro()
 
-moto1.alugar(cliente1.getNome(), moto1.getPlaca(), 5)
+    moto1 = Moto()
+    moto1.setPlaca('MOT123')
+    moto1.setValor(40)
+    moto1.listarMoto()
 
-carro2.alugar(cliente2.getNome(), carro2.getPlaca(), 5)
+    moto2 = Moto()
+    moto2.setPlaca('MOT234')
+    moto2.setValor(50)
+    moto2.listarMoto()
 
-moto2.alugar(cliente2.getNome(), moto2.getPlaca(), 5)
+    # LOCAÇÃO
+    print('\n*************************INFORMAÇÕES LOCAÇÃO*************************\n')
+    carro1.alugar(cliente1.getNome(), carro1.getPlaca(),  5)
 
-# TENTAR ALUGAR VEÍCULO JÁ LOCADO
+    moto1.alugar(cliente1.getNome(), moto1.getPlaca(), 5)
 
-carro1.alugar(cliente2.getNome(), carro1.getPlaca(),  5)
+    carro2.alugar(cliente2.getNome(), carro2.getPlaca(), 5)
 
-moto1.alugar(cliente2.getNome(), moto1.getPlaca(), 5)
+    moto2.alugar(cliente2.getNome(), moto2.getPlaca(), 5)
 
-carro2.alugar(cliente1.getNome(), carro2.getPlaca(), 5)
+    # TENTAR ALUGAR VEÍCULO JÁ LOCADO
 
-moto2.alugar(cliente1.getNome(), moto2.getPlaca(), 5)
+    carro1.alugar(cliente2.getNome(), carro1.getPlaca(),  5)
 
-#DEVOLUÇÃO
-carro1.devolver(carro1.getPlaca())
+    moto1.alugar(cliente2.getNome(), moto1.getPlaca(), 5)
 
-moto1.devolver(moto1.getPlaca())
+    carro2.alugar(cliente1.getNome(), carro2.getPlaca(), 5)
 
-carro2.devolver(carro2.getPlaca())
+    moto2.alugar(cliente1.getNome(), moto2.getPlaca(), 5)
 
-moto2.devolver(moto2.getPlaca())
+    #DEVOLUÇÃO
+    carro1.devolver(carro1.getPlaca())
 
-# TENTAR DEVOLVER VEÍCULO JÁ ENTREGUE
+    moto1.devolver(moto1.getPlaca())
 
-carro1.devolver(carro1.getPlaca())
+    carro2.devolver(carro2.getPlaca())
 
-moto1.devolver(moto1.getPlaca())
+    moto2.devolver(moto2.getPlaca())
 
-carro2.devolver(carro2.getPlaca())
+    # TENTAR DEVOLVER VEÍCULO JÁ ENTREGUE
 
-moto2.devolver(moto2.getPlaca())
+    carro1.devolver(carro1.getPlaca())
 
-#HISTÓRICO
-print('\n*************************Histórico*************************\n')
-print("\nHistorico do veículo de placa" + carro1.getPlaca())
-carro1.listarHistorico()
+    moto1.devolver(moto1.getPlaca())
 
-print("\nHistorico do veículo de placa" + moto1.getPlaca())
-moto1.listarHistorico()
+    carro2.devolver(carro2.getPlaca())
 
-print("\nHistorico do veículo de placa" + carro2.getPlaca())
-carro2.listarHistorico()
+    moto2.devolver(moto2.getPlaca())
 
-print("\nHistorico do veículo de placa" + moto2.getPlaca())
-moto2.listarHistorico()
+    #HISTÓRICO
+    print('\n*************************Histórico*************************\n')
+    print("\nHistorico do veículo de placa" + carro1.getPlaca())
+    carro1.listarHistorico()
+
+    print("\nHistorico do veículo de placa" + moto1.getPlaca())
+    moto1.listarHistorico()
+
+    print("\nHistorico do veículo de placa" + carro2.getPlaca())
+    carro2.listarHistorico()
+
+    print("\nHistorico do veículo de placa" + moto2.getPlaca())
+    moto2.listarHistorico()
+
+if __name__ == '__main__':
+    principal()
